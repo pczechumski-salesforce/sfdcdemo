@@ -8,6 +8,6 @@ public with sharing class TestClass {
 	}
 
 	public void gitHubIntegration(){
-		 ///test
+		 ///Add some comments
 	}
 }
