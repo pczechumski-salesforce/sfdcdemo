@@ -9,5 +9,7 @@ public with sharing class TestClass {
 
 	public void gitHubIntegration(){
 		 ///Add some comments
+
+		 // test2
 	}
 }
