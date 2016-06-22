@@ -1,3 +1,6 @@
 language: java
 
+env:
+ - sfdc_pollWaitMillis=1000 sfdc_username=pczechumski@ccsdemo2.com sfdc_serverurl=https://login.salesforce.com sfdc_maxPoll=1000 sfdc_password=ccsdemo2KYyTgTB2k4LrVzGvbLTXQkd04
+
 script: ant testdeploy-with-Testclasses
