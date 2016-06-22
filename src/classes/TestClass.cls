@@ -5,7 +5,7 @@ public with sharing class TestClass {
 	}
 
 	public void justAnotherTest(){
-		 ///test
+		 ///test 2
 	}
 
 	public void gitHubIntegration(){
