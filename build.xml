@@ -24,6 +24,7 @@
       <!-- ***************************************************************************** -->
       <target name="testdeploy-with-Testclasses">
         <echo level="info">Performing the test deploy</echo>
+        <echo level="info">${sfdc_pollWaitMillis}</echo>
         <sf:deploy username="${sf.username}"
           password="${sf.password}"
           serverurl="${sf.serverurl}"
