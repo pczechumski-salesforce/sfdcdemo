@@ -10,6 +10,8 @@
       </classpath>
     </taskdef>
 
+    <property environment="env"/>
+
     <!-- Setting default value for username, password and session id properties to empty string
          so unset values are treated as empty. Without this, ant expressions such as ${sf.username}
          will be treated literally.
@@ -24,7 +26,7 @@
       <!-- ***************************************************************************** -->
       <target name="testdeploy-with-Testclasses">
         <echo level="info">Performing the test deploy</echo>
-        <echo level="info">${sfdc_pollWaitMillis}</echo>
+        <echo level="info">${env.sfdc_pollWaitMillis}</echo>
         <sf:deploy username="${sf.username}"
           password="${sf.password}"
           serverurl="${sf.serverurl}"
@@ -36,7 +38,7 @@
           autoUpdatePackage="true"
           ignoreWarnings="true"
           deployRoot="${basedir}/src"
-          pollWaitMillis="${sfdc_pollWaitMillis}"
+          pollWaitMillis="${env.sfdc_pollWaitMillis}"
           maxPoll="${sfdc.maxPoll}"/>
       </target>
 
