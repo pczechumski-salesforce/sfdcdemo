@@ -35,7 +35,7 @@
           autoUpdatePackage="true"
           ignoreWarnings="true"
           deployRoot="${basedir}/src"
-          pollWaitMillis="${sfdc.pollWaitMillis}"
+          pollWaitMillis="${sfdc_pollWaitMillis}"
           maxPoll="${sfdc.maxPoll}"/>
       </target>
 
