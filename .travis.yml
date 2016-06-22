@@ -1,1 +1,3 @@
-ant testdeploy-with-Testclasses
+language: java
+
+script: ant testdeploy-with-Testclasses
