@@ -12,5 +12,7 @@ public with sharing class TestClass {
 		 ///Add some comments
 		 String str;
 		 // rety build 2
+		 
+		 // some new comment
 	}
 }
