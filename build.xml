@@ -55,7 +55,7 @@
           serverurl="${env.sfdc_serverurl}"
           maxPoll="${env.sfdc_maxPoll}"
           retrieveTarget="retrieveOutput"
-          unpackaged=".\src\package.xml"/>
+          unpackaged="./src/package.xml"/>
 
 
         <echo level="info">Comment out existing flows in package.xml</echo>
