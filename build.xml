@@ -43,10 +43,69 @@
       </target>
 
 
+      <!-- comment out flows in package.xml if already exisitng on enviroment -->
+      <target name="removeExistingFlowsFromPackage">
 
 
+        <echo level="info">Get data from target enviroment</echo>
+        <mkdir dir="retrieveOutput"/>
+        <!-- Retrieve the contents into another directory -->
+        <sf:retrieve username="${env.sfdc_username}"
+          password="${env.sfdc_password}"
+          serverurl="${env.sfdc_serverurl}"
+          maxPoll="${env.sfdc_maxPoll}"
+          retrieveTarget="retrieveOutput"
+          unpackaged="src\package.xml"/>
 
 
+        <echo level="info">Comment out existing flows in package.xml</echo>
+        <taskdef name="RemoveFlowFromPackage" classname="RemoveFlowFromPackage" classpath="${basedir}/lib/RemoveFlowFromPackage.jar"/>
+        <RemoveFlowFromPackage targetFolderPath=".\\retrieveOutput\\flows" deployFolder=".\\src\\package.xml"/>
+
+
+        <echo level="info">Delete folder with data downloaded from target</echo>
+        <delete dir="retrieveOutput"/>
+
+      </target>
+
+
+      <target name="deployWithoutExistingFlows">
+        <echo level="info">Performing the  deploy</echo>
+
+        <antcall target="removeExistingFlowsFromPackage"></antcall>
+  
+
+        <sf:deploy username="${env.sfdc_username}"
+          password="${env.sfdc_password}"
+          serverurl="${env.sfdc_serverurl}"
+          checkOnly="true"
+          runAllTests="false"
+          testLevel="RunLocalTests"
+          logType="Detail"
+          allowMissingFiles="true"
+          autoUpdatePackage="true"
+          ignoreWarnings="true"
+          deployRoot="${basedir}/src"
+          pollWaitMillis="${env.sfdc_pollWaitMillis}"
+          maxPoll="${env.sfdc_maxPoll}"/>
+      </target>
+
+
+      <!-- Test out deploy and retrieve verbs for package 'mypkg' -->
+      <target name="t2">
+
+        <taskdef name="RemoveFlowFromPackage" classname="RemoveFlowFromPackage" classpath="${basedir}/lib/RemoveFlowFromPackage.jar"/>
+        <RemoveFlowFromPackage targetFolderPath=".\\retrieveOutput\\flows" deployFolder=".\\src\\package.xml"/>
+
+        <mkdir dir="retrieveOutput"/>
+        <!-- Retrieve the contents into another directory -->
+        <sf:retrieve username="${env.sfdc_username}"
+          password="${env.sfdc_password}"
+          serverurl="${env.sfdc_serverurl}"
+          maxPoll="${env.sfdc_maxPoll}"
+          retrieveTarget="retrieveOutput"
+          unpackaged="src\package.xml"/>
+      </target>
 
 
 
@@ -55,7 +114,7 @@
     <!-- Test out deploy and retrieve verbs for package 'mypkg' -->
     <target name="test">
       <!-- Upload the contents of the "mypkg" package -->
-      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="mypkg" rollbackOnError="true"/>
+      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sfdc_maxPoll}" deployRoot="mypkg" rollbackOnError="true"/>
       <mkdir dir="retrieveOutput"/>
       <!-- Retrieve the contents into another directory -->
       <sf:retrieve username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="retrieveOutput" packageNames="MyPkg"/>

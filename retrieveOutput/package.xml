@@ -17,11 +17,6 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>Test_flow-1</members>
-        <members>Test_flow-2</members>
-        <name>Flow</name>
-    </types>
-    <types>
         <members>*</members>
         <name>StaticResource</name>
     </types>
