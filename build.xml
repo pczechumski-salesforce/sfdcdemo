@@ -60,7 +60,7 @@
 
         <echo level="info">Comment out existing flows in package.xml</echo>
         <taskdef name="RemoveFlowFromPackage" classname="RemoveFlowFromPackage" classpath="${basedir}/lib/RemoveFlowFromPackage.jar"/>
-        <RemoveFlowFromPackage targetFolderPath=".\\retrieveOutput\\flows" deployFolder=".\\src\\package.xml"/>
+        <RemoveFlowFromPackage targetFolderPath="./retrieveOutput/flows" deployFolder="./src/package.xml"/>
 
 
         <echo level="info">Delete folder with data downloaded from target</echo>
