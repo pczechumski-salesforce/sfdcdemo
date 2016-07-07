@@ -1,4 +1,4 @@
-# MASTER branch config
+# MASTER config
 language: java
 
 script: ant testdeploy-with-Testclasses
