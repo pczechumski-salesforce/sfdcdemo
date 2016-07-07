@@ -6,3 +6,4 @@ config/.local_store
 config/.session
 config/.settings
 config/.symbols/TestClass.json
+.travis.yml
