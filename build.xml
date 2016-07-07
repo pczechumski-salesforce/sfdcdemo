@@ -91,6 +91,26 @@
       </target>
 
 
+
+      <target name="testdeploy-DEV">
+        <echo level="info">Performing the test deploy to DEV</echo>
+        <property name="sfdc_username">${env.dev_username}</property>
+        <echo level="info">${sfdc_username}</echo>
+        <sf:deploy username="${sfdc_username}"
+          password="${env.sfdc_password}"
+          serverurl="${env.sfdc_serverurl}"
+          checkOnly="true"
+          runAllTests="false"
+          testLevel="RunLocalTests"
+          logType="Detail"
+          allowMissingFiles="true"
+          autoUpdatePackage="true"
+          ignoreWarnings="true"
+          deployRoot="${basedir}/src"
+          pollWaitMillis="${env.sfdc_pollWaitMillis}"
+          maxPoll="${env.sfdc_maxPoll}"/>
+      </target>
+
       <!-- Test out deploy and retrieve verbs for package 'mypkg' -->
       <target name="t2">
 
