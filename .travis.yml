@@ -1,4 +1,4 @@
-# MASTER config
+# DEV config 2
 language: java
 
-script: ant testdeploy-with-Testclasses
+script: ant testdeploy-DEV
