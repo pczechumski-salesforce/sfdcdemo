@@ -1,4 +1,0 @@
-# DEV config 2
-language: java
-
-script: ant testdeploy-DEV
