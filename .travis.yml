@@ -1,4 +1,14 @@
-# DEV config 2
+# DEV config
 language: java
 
-script: ant testdeploy-DEV
+before_install:
+- export BUILD_NUMBER=$TRAVIS_BUILD_NUMBER-$TRAVIS_BUILD_ID
+- export DEPL_ENV="bad-branch"
+- if [[ "$TRAVIS_BRANCH" == "master"* ]]; then export DEPL_ENV="master"; fi
+- if [[ "$TRAVIS_BRANCH" == "DEV"* ]]; then export DEPL_ENV="DEV"; fi
+
+install:
+- cp ./build/$DEPL_ENV/build.properties ./build.properties
+
+script:
+- ant -buildfile build.xml -Dbuild.number=$BUILD_NUMBER testdeploy
