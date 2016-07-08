@@ -47,7 +47,7 @@
         <echo level="info">Performing the test deploy</echo>
         <echo level="info">${env.sfdc_username}</echo>
         <sf:deploy username="${sf.username}"
-          password="${sf._password}"
+          password="${sf.password}"
           serverurl="${sf.serverurl}"
           checkOnly="true"
           runAllTests="false"
