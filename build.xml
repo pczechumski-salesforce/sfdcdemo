@@ -1,7 +1,7 @@
 <project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
 
-    <property file="${basedir}/build.properties"/>
-    <property environment="env"/>
+    <property file="build.properties"/>
+      <!-- <property environment="env"/>--?
 
     <!-- Define salesforce Ant Jar-->
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
@@ -40,6 +40,25 @@
           deployRoot="${basedir}/src"
           pollWaitMillis="${env.sfdc_pollWaitMillis}"
           maxPoll="${env.sfdc_maxPoll}"/>
+      </target>
+
+      <!-- Test deploy -->
+      <target name="testdeploy">
+        <echo level="info">Performing the test deploy</echo>
+        <echo level="info">${env.sfdc_username}</echo>
+        <sf:deploy username="${sf.username}"
+          password="${sf._password}"
+          serverurl="${sf.serverurl}"
+          checkOnly="true"
+          runAllTests="false"
+          testLevel="RunLocalTests"
+          logType="Detail"
+          allowMissingFiles="true"
+          autoUpdatePackage="true"
+          ignoreWarnings="true"
+          deployRoot="${basedir}/src"
+          pollWaitMillis="${sf.pollWaitMillis}"
+          maxPoll="${sf.maxPoll}"/>
       </target>
 
 
