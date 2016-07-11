@@ -6,6 +6,7 @@ public with sharing class TestClass {
 
 	public void justAnotherTest(){
 		 ///Change for SourceTree
+		 // Change for pull request
 	}
 
 	public void gitHubIntegration(){
