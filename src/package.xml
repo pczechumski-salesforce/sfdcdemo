@@ -17,6 +17,23 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>ZZ_Enviroment_Release__c</members>
+        <members>ZZ_Enviroment__c</members>
+        <members>ZZ_Release__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>ZZ_Enviroment__c</members>
+        <members>ZZ_Release__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>ZZ_Enviroment_Release__c-Enviroment Release Layout</members>
+        <members>ZZ_Enviroment__c-Enviroment Layout</members>
+        <members>ZZ_Release__c-Release Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
         <members>Test_flow-1</members>
         <members>Test_flow-2</members>
         <members>Test_flow-3</members>
