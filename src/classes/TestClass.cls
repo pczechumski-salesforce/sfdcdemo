@@ -5,7 +5,7 @@ public with sharing class TestClass {
 	}
 
 	public void justAnotherTest(){
-		 ///test 2
+		 ///Change for SourceTree
 	}
 
 	public void gitHubIntegration(){
