@@ -26,8 +26,9 @@
       <!-- ***************************************************************************** -->
       <target name="testdeploy-with-Testclasses">
         <echo level="info">Performing the test deploy</echo>
-        <echo level="info">${env.sfdc_username}</echo>
+        <echo level="info">${PASS_FROM_SET2}</echo>
         <echo level="info">${PASS_FROM_SET}</echo>
+        <echo level="info">${env.sfdc_username}</echo>
         <echo level="info">Start...</echo>
         <sf:deploy username="${env.sfdc_username}"
           password="${env.sfdc_password}"
