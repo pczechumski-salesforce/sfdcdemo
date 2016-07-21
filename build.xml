@@ -45,15 +45,12 @@
       <!-- Test deploy -->
       <target name="testdeploy">
         <echo level="info">Performing the test deploy for user:</echo>
-        <echo level="info">${env.PASS_FROM_SET2}</echo>
-        <echo level="info">${PASS_FROM_SET}</echo>
-        <echo level="info">${sf.test}</echo>
         <echo level="info">${sf.username}</echo>
 
         <antcall target="removeExistingFlowsFromPackage"></antcall>
 
         <sf:deploy username="${sf.username}"
-          password="${sf.password}"
+          password="${env.sfdc_password}"
           serverurl="${sf.serverurl}"
           checkOnly="true"
           runAllTests="false"
@@ -76,7 +73,7 @@
         <mkdir dir="retrieveOutput"/>
         <!-- Retrieve the contents into another directory -->
         <sf:retrieve username="${sf.username}"
-          password="${sf.password}"
+          password="${env.sfdc_password}"
           serverurl="${sf.serverurl}"
           maxPoll="${sf.maxPoll}"
           retrieveTarget="retrieveOutput"
