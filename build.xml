@@ -47,7 +47,7 @@
         <echo level="info">Performing the test deploy for user:</echo>
         <echo level="info">${env.PASS_FROM_SET2}</echo>
         <echo level="info">${PASS_FROM_SET}</echo>
-        <echo level="info">${env.sfdc_username}</echo>
+        <echo level="info">${sf.test}</echo>
         <echo level="info">${sf.username}</echo>
 
         <antcall target="removeExistingFlowsFromPackage"></antcall>
