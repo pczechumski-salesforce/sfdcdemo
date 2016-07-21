@@ -1,11 +1,15 @@
 # Test deploy
 language: java
 
+env:
+  - sfdc_password="wrongpassword"
+
 before_install:
 - export BUILD_NUMBER=$TRAVIS_BUILD_NUMBER-$TRAVIS_BUILD_ID
 - export DEPL_ENV="bad-branch"
-- if [[ "$TRAVIS_BRANCH" == "master"* ]]; then export DEPL_ENV="master"; fi
-- if [[ "$TRAVIS_BRANCH" == "DEV"* ]]; then export DEPL_ENV="DEV"; fi
+- export PASS_FROM_SET="bedpassword"
+- if [[ "$TRAVIS_BRANCH" == "master"* ]]; then export DEPL_ENV="master"; sfdc_password=$MASTER_password; fi
+- if [[ "$TRAVIS_BRANCH" == "DEV"* ]]; then export DEPL_ENV="DEV"; sfdc_password=$DEV_password; fi
 
 install:
 - cp ./build/$DEPL_ENV/build.properties ./build.properties
