@@ -17,6 +17,8 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>Account</members>
+        <members>Contact</members>
         <members>ZZ_Enviroment_Release__c</members>
         <members>ZZ_Enviroment__c</members>
         <members>ZZ_Release__c</members>
