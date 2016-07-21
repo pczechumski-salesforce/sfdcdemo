@@ -9,7 +9,7 @@ before_install:
 - export DEPL_ENV="bad-branch"
 - export PASS_FROM_SET="bedpassword"
 - if [[ "$TRAVIS_BRANCH" == "master"* ]]; then export DEPL_ENV="master"; fi
-- if [[ "$TRAVIS_BRANCH" == "DEV"* ]]; then export DEPL_ENV="DEV"; PASS_FROM_SET=DEV_password; PASS_FROM_SET2="HoHoHo"; fi
+- if [[ "$TRAVIS_BRANCH" == "DEV"* ]]; then export DEPL_ENV="DEV"; PASS_FROM_SET2=$DEV_password; fi
 
 install:
 - cp ./build/$DEPL_ENV/build.properties ./build.properties
